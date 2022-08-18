@@ -1,1 +1,10 @@
-<p>shop works!</p>
+<app-categories [categories]="categories"></app-categories>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let product of selectedProducts" class="col-3 mt-2">
+      <app-product [product]="product"></app-product>
+    </div>
+  </div>
+</div>
+
+

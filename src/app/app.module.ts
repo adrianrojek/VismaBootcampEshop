@@ -8,21 +8,29 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 import {AdminModule} from "./admin/admin.module";
 import {ShopModule} from "./shop/shop.module";
 import {HomePageModule} from "./home-page/home-page.module";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {CartModule} from "./cart/cart.module";
+import {CustomHttpInterceptorInterceptor} from "./shared/interceptors/custom-http-interceptor.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomePageModule,
     AdminModule,
-    ShopModule
+    ShopModule,
+    HttpClientModule,
+    CartModule
+
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptorInterceptor,multi: true}],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
