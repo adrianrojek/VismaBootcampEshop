@@ -1,0 +1,18 @@
+<div class="p-5">
+  <h3>Create new category</h3>
+  <form [formGroup]="categoryForm" (ngSubmit)="createNewCategory()">
+    <div class="form-group">
+      <label for="categoryName" class="form-label mt-4">Name</label>
+      <input [ngClass]="{'is-invalid': nameControl.invalid && nameControl.touched}" type="text" class="form-control" formControlName="name" id="categoryName" placeholder="Name">
+      <div *ngIf="nameControl.invalid && nameControl.touched" class="invalid-feedback">{{nameErrorMessage}}</div>
+    </div>
+    <div class="form-group">
+      <label for="categoryDescription" class="form-label mt-4">Description</label>
+      <textarea [ngClass]="{'is-invalid': descControl.invalid  && descControl.touched}" type="text" rows="2" class="form-control" formControlName="description" id="categoryDescription" placeholder="Description"></textarea>
+      <div *ngIf="descControl.invalid && descControl.touched" class="invalid-feedback">{{descErrorMessage}}</div>
+    </div>
+    <div class="col-3 mt-5 d-flex w-100 justify-content-end">
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+  </form>
+</div>

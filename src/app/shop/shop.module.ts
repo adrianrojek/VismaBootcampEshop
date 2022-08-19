@@ -6,7 +6,6 @@ import {HomeComponent} from "../home-page/home/home.component";
 import { CategoriesComponent } from './categories/categories.component';
 import { ProductComponent } from './product/product.component';
 import {AppModule} from "../app.module";
-import {CustomCurrencyPipe} from "../shared/pipes/currency.pipe";
 import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
@@ -19,10 +18,9 @@ export const routing = RouterModule.forChild(routes);
     ShopComponent,
     CategoriesComponent,
     ProductComponent,
-    CustomCurrencyPipe
   ],
   exports: [
-    CustomCurrencyPipe
+
   ],
   imports: [
     CommonModule,

@@ -19,4 +19,8 @@ export class ProductResourceService {
       })
     )
   }
+
+  createNewProduct(product: Product, categoryId:string):Observable<Product>{
+    return this.http.post<Product>(environment.baseUrl+"catalogs/"+categoryId+"/products",product);
+  }
 }

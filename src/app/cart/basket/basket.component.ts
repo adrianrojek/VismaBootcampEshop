@@ -8,15 +8,17 @@ import {BasketDataService} from "../../shared/services/basket-data.service";
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  totalSum: 0;
-  constructor(public basketService: BasketDataService) { }
+  totalSum = 0;
+
+  constructor(public basketService: BasketDataService) {
+  }
 
   ngOnInit(): void {
-    // this.basketService.currentBasket.forEach((item) =>{
-    //   this.totalSum += item.amount * item.product.price;
-    //   }
-    // )
-    debugger;
+    this.basketService.currentBasket.forEach((item) => {
+        console.log(item);
+        this.totalSum += item.amount * item.product.price;
+      }
+    )
   }
 
 }

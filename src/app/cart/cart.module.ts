@@ -14,13 +14,13 @@ export const routing = RouterModule.forChild(routes);
 @NgModule({
   declarations: [
     BasketComponent,
-    BasketItemComponent
+    BasketItemComponent,
   ],
     imports: [
         CommonModule,
         RouterModule,
         routing,
-        ShopModule
+
     ]
 })
 export class CartModule { }
